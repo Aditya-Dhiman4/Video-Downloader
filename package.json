@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "api": "^6.0.0",
+    "axios": "^1.4.0",
+    "chart.js": "^4.3.0",
+    "dotenv": "^16.3.1",
+    "puppeteer": "^20.3.0",
+    "sharp": "^0.32.1",
+    "youtube-dl-exec": "^2.4.4",
+    "ytdl-core": "^4.11.4"
+  },
+  "name": "yttomp4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
