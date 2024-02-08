@@ -6,20 +6,21 @@ require('dotenv').config();
 
 const language = 'Premium';
 let episodeInfo = [];
-const playlistName = 'Exploring Mental Health Struggles: ';
+const playlistName = 'Attraction 101: ';
 
 const urls = [
-    'https://www.youtube.com/watch?v=YJJo7tp-FyQ&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=10&pp=iAQB',
-    'https://www.youtube.com/watch?v=nG1VpuLFAjA&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=11&pp=iAQB',
-    'https://www.youtube.com/watch?v=Z69pA6x2gQQ&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=29&pp=iAQB',
-    'https://www.youtube.com/watch?v=9B-wTp2PZH8&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=45&pp=iAQB',
-    'https://www.youtube.com/watch?v=u6_cqxAYp1M&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=50&pp=iAQB',
-    'https://www.youtube.com/watch?v=GikjZQmeTFY&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=62&pp=iAQB',
-    'https://www.youtube.com/watch?v=Cu6kt3Yjii8&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=91&pp=iAQB'
+    'https://www.youtube.com/watch?v=3u-ImON16rs&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=106&pp=iAQB',
+    'https://www.youtube.com/watch?v=ODy4ztZrMGg&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=112&pp=iAQB',
+    'https://www.youtube.com/watch?v=-fgbQsVtsfo&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=157&pp=iAQB',
+    'https://www.youtube.com/watch?v=XLBKy7g3yTc&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=164&pp=iAQB',
+    // 'https://www.youtube.com/watch?v=dBKUkyhytH0&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=425&pp=iAQB',
+    'https://www.youtube.com/watch?v=Hvhzca1rCkw&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=160&pp=iAQB',
+    'https://www.youtube.com/watch?v=9BudFjwBnTU&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=221&pp=iAQB',
+    'https://www.youtube.com/watch?v=hXlFxceM4R8&list=PLD4cyJhQaFwUp6ZMgiyP2zvIGS24WmdMv&index=222&pp=iAQB'
 ];
 
 const vd = new vidDownloader(language, `C:/Users/User/OneDrive/Psych2go/Premium/`, urls);
-// const autoFunctions = new autoFunctions();
+const Utils = new Utils();
 
 async function executeProgram() {
     for (let count = 1; count <= urls.length; count++) {

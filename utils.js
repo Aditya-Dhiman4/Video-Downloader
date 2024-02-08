@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-class autoFunctions {
+class Utils {
     
     obtainDate(count, startDay) {
         let date = new Date();
@@ -32,13 +32,26 @@ class autoFunctions {
         return [weekDay, day, month, year];
     }
 
+    secondsToTime(seconds) {
+        let remainingSeconds = seconds % 60;
+        let minute = "0" + (seconds - remainingSeconds) / 60;
+
+        return "00" + minute.substring(0, 2) + String(remainingSeconds * 1000000).substring(0, 5);
+    }
+
+    // async selectButton(page, selector) {
+    //     await page.evaluate((selector) => {
+    //         const button = document.querySelector(selector);
+    //         if (button) {
+    //           button.click();
+    //         }
+    //     }, selector);
+    // }
+
     async selectButton(page, selector) {
-        await page.evaluate((selector) => {
-            const button = document.querySelector(selector);
-            if (button) {
-              button.click();
-            }
-        }, selector);
+        await page.waitForSelector(selector);
+        const element = await page.$(selector);
+        await page.evaluate((element) => element.click(), element)
     }
     
     async obtainElementText(page, selector) {
@@ -77,7 +90,7 @@ class autoFunctions {
     }
     
     async nextPage(page, timeout) {
-        const next = await page.waitForSelector('button[data-encore-id="buttonPrimary"].Button-sc-qlcn5g-0.hWxHrB');
+        const next = await page.waitForSelector('button[data-encore-id="buttonPrimary"][class="Button-sc-qlcn5g-0 dRlmYr"]');
         await next.click();
         console.log('Clicked: nextPage');
         await page.waitForTimeout(timeout);
@@ -96,6 +109,8 @@ class autoFunctions {
         await file.uploadFile(filePath); // uploading audio
         console.log('Done');
     }
+
+
 };
 
-module.exports = autoFunctions;
+module.exports = Utils;
